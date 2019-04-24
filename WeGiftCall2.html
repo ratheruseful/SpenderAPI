@@ -1,0 +1,25 @@
+
+<html>
+<script type=text/javascript>
+
+let username = "";
+let password = "";
+let url = `https://api.wegift.io/api/b2b-sync/v1/auth`
+let authString = `${username}:${password}`
+let headers = new Headers();
+//headers.set('Authorization', 'Basic ' + btoa(authString))
+headers.set('Authorization', 'Basic ' + authString)
+    console.log(authString)
+
+fetch(url,{method: 'GET', headers: headers, mode: 'no-cors'})
+  .then(function(response) {
+    console.log(response)
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+	
+</script>
+<body>test page</body>
+</html>
